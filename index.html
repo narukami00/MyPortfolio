@@ -306,6 +306,30 @@
           contactTooltip.style.display = "none";
         });
       });
+
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    function onScroll() {
+    if (window.innerWidth > 768) return;
+    const header = document.querySelector('.header');
+    if (!header) return;
+    if (window.scrollY > lastScrollY && window.scrollY > 50) {
+        header.classList.add('hide-on-scroll');
+    } else {
+        header.classList.remove('hide-on-scroll');
+    }
+    lastScrollY = window.scrollY;
+    }
+    window.addEventListener('scroll', () => {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+        onScroll();
+        ticking = false;
+        });
+        ticking = true;
+    }
+    });
     </script>
   </body>
 </html>
