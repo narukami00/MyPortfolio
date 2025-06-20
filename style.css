@@ -732,19 +732,19 @@ body {
   }
 
   .orbit {
-    width: 250px; 
-    height: 250px;
+    width: 300px; 
+    height: 300px;
   }
 
   .skill-icon {
-    width: 50px;  
-    height: 50px;
-    transform: rotate(calc(360deg / 7 * var(--i))) translate(90px)
+    width: 60px;  
+    height: 60px;
+    transform: rotate(calc(360deg / 7 * var(--i))) translate(110px)
       rotate(calc(-360deg / 7 * var(--i)));
   }
 
   .skill-icon:hover {
-    transform: scale(1.1) rotate(calc(360deg / 7 * var(--i))) translate(90px)
+    transform: scale(1.2) rotate(calc(360deg / 7 * var(--i))) translate(110px)
       rotate(calc(-360deg / 7 * var(--i)));
   }
 
