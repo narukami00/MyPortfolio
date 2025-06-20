@@ -90,30 +90,100 @@ body {
   width: 100%;
 }
 
-/* Responsive Menu */
+/* Hamburger styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger:hover span {
+  background: linear-gradient(270deg, #6dd5ed, #2193b0, #6e45e2, #6dd5ed);
+  background-size: 600% 600%;
+  animation: smoothGradient 3s ease infinite;
+  box-shadow: 0 0 8px rgba(109, 213, 237, 0.5);
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #6dd5ed;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Show hamburger on mobile */
 @media (max-width: 768px) {
+  .header {
+    position: sticky;
+    height: auto;           
+    overflow: visible;      
+  }
+
   .container {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.2rem;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+    margin: 0;
+  }
+
+  .hamburger {
+    display: flex;
+    cursor: pointer;
+  }
+
+  /* Hide nav by default, but allow it to take space when open */
+  .nav {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1050;
+    background: #0a0f2c;
+    padding: 0;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .nav.open {
+    max-height: 300px;
+    padding: 1.5rem 0; 
   }
 
   .nav-links {
     flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding-left: 2rem;
     width: 100%;
-    margin-top: 1rem;
-    gap: 1rem;
+    margin-top: 0;
   }
 
-  .header {
-    height: 220px; 
-    transition: top 0.3s;
-    overflow: hidden;
-    transition: top 0.3s;
+  .nav.open .nav-links li {
+    opacity: 1;
+    transform: translateY(0);
   }
-  .header.hide-on-scroll {
-    top: -220px; 
-  }
+
+  .nav.open .nav-links li:nth-child(1) { transition-delay: 0.05s; }
+  .nav.open .nav-links li:nth-child(2) { transition-delay: 0.1s; }
+  .nav.open .nav-links li:nth-child(3) { transition-delay: 0.15s; }
+  .nav.open .nav-links li:nth-child(4) { transition-delay: 0.2s; }
 }
+
 
 /* Hero Section */
 

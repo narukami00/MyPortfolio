@@ -22,6 +22,14 @@
     <header class="header">
       <div class="container">
         <a href="#hero" class="logo">Rafsan Riasat</a>
+
+        <!-- Place after the logo, before <nav class="nav"> -->
+        <button class="hamburger" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+        </button>
+
         <nav class="nav">
           <ul class="nav-links">
             <li><a href="#about">About</a></li>
@@ -307,27 +315,13 @@
         });
       });
 
-
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-    function onScroll() {
-    if (window.innerWidth > 768) return;
-    const header = document.querySelector('.header');
-    if (!header) return;
-    if (window.scrollY > lastScrollY && window.scrollY > 50) {
-        header.classList.add('hide-on-scroll');
-    } else {
-        header.classList.remove('hide-on-scroll');
-    }
-    lastScrollY = window.scrollY;
-    }
-    window.addEventListener('scroll', () => {
-    if (!ticking) {
-        window.requestAnimationFrame(() => {
-        onScroll();
-        ticking = false;
+    document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('.nav');
+    if (hamburger && nav) {
+        hamburger.addEventListener('click', function() {
+        nav.classList.toggle('open');
         });
-        ticking = true;
     }
     });
     </script>
