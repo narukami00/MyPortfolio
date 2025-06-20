@@ -579,8 +579,6 @@ body {
 }
 
 .skills-container {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -705,6 +703,14 @@ body {
 }
 
 /* Responsive: Stack layout */
+
+@media (min-width: 768px) {
+  .skills-container {
+    padding-left: 3rem; 
+  }
+}
+
+
 @media (max-width: 768px) {
   .skills-container {
     flex-direction: column;
