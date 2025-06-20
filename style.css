@@ -6,6 +6,11 @@
   scroll-behavior: smooth;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
+
 body {
   overflow-x: hidden;
   font-family: "Inter", sans-serif;
@@ -716,19 +721,38 @@ body {
   .skills-container {
     flex-direction: column;
     text-align: center;
+    overflow-x: hidden;
   }
+
   .skills-orbit {
     margin-top: 2rem;
     padding-top: 0;
+    width: 100%;
+    overflow-x: hidden;
   }
+
+  .orbit {
+    width: 250px; 
+    height: 250px;
+  }
+
   .skill-icon {
-    width: 80px;
-    height: 80px;
+    width: 50px;  
+    height: 50px;
+    transform: rotate(calc(360deg / 7 * var(--i))) translate(90px)
+      rotate(calc(-360deg / 7 * var(--i)));
   }
+
+  .skill-icon:hover {
+    transform: scale(1.1) rotate(calc(360deg / 7 * var(--i))) translate(90px)
+      rotate(calc(-360deg / 7 * var(--i)));
+  }
+
   .skill-icon i {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 }
+
 
 /* Smooth Gradient Animation */
 
